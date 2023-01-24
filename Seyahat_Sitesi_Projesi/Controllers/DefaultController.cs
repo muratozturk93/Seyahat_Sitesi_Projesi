@@ -33,12 +33,18 @@ namespace Seyahat_Sitesi_Projesi.Controllers
         }
         public PartialViewResult Partial3()
         {
-            var deger = c.Blogs.ToList();
+            var deger = c.Blogs.Take(10).ToList();
             return PartialView(deger);
         }
         public PartialViewResult Partial4()
         {
             var deger = c.Blogs.Take(3).ToList();
+            return PartialView(deger);
+        }
+
+        public PartialViewResult Partial5()
+        {
+            var deger = c.Blogs.Take(3).OrderByDescending(x=>x.Id).ToList();
             return PartialView(deger);
         }
     }
