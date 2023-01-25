@@ -42,8 +42,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <img src="@x.BlogImage" alt="" style="margin-bottom:20px" />
                     <a href="/Blog/BlogDetay/@x.Id">@x.Baslik</a>
                     <p>
-                     @x.Aciklama
+                     @x.Aciklama.Substring(0,x.Aciklama.Substring(0,200).LastIndexOf(" "))...
                     </p>
+                    <a href="/Blog/BlogDetay/@x.Id">Devamını Oku...</a>
                     </div>
                     <br /><br />
                 }
@@ -62,12 +63,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         }
                     </div>
                     <div class="comments">
-                        <h3>Son Yorumlar</h3>
-                        <ul>
-                            <li><a href="#">Amada Doe </a> on <a href="#">Hello World!</a></li>
-                            <li><a href="#">Peter Doe </a> on <a href="#"> Photography</a></li>
-                            <li><a href="#">Steve Roberts  </a> on <a href="#">HTML5/CSS3</a></li>
-                        </ul>
                     </div>
 
                 </div>

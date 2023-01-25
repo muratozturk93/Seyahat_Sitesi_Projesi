@@ -7,6 +7,7 @@ using Seyahat_Sitesi_Projesi.Models.Siniflar;
 
 namespace Seyahat_Sitesi_Projesi.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         // GET: Admin
@@ -60,6 +61,20 @@ namespace Seyahat_Sitesi_Projesi.Controllers
         {
             var blog = c.Yorumlars.Find(id);
             c.Yorumlars.Remove(blog);
+            c.SaveChanges();
+            return RedirectToAction("YorumListesi");
+        }
+        public ActionResult YorumGetir(int id)
+        {
+            var yorum = c.Yorumlars.Find(id);
+            return View("YorumGetir", yorum);
+        }
+        public ActionResult YorumGuncelle(Yorumlar y)
+        {
+            var yorum = c.Yorumlars.Find(y.Id);
+            yorum.KullaniciAdi = y.KullaniciAdi;
+            yorum.Mail = y.Mail;
+            yorum.Yorum = y.Yorum;
             c.SaveChanges();
             return RedirectToAction("YorumListesi");
         }
